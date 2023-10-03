@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: 'Mulish', sans-serif;
+
+  --hue: 195; /* 195 */
+  --color-base-blue-500: hsl(var(--hue), 91%, 25%);
+  --color-base-blue-300: hsl(var(--hue), 46%, 40%);
+}
+
+html, body, input {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  font-size: clamp(1.6rem, 1vw + 0.4rem, 2rem);
+  background-color: #FFF;
+  color: #121214;
+}
+
+#page {
+  display: grid;
+  height: 100vh;
+}
+
+header {
+  padding: 1.2rem;
+  width: 100%;
+}
+
+header, nav {
+  display: flex;
+  gap: 2.6rem;
+  align-items: center;
+
+  background-color: var(--color-base-blue-500);
+}
+
+header form {
+  flex: 1;
+}
+
+.logo {
+  width: 4.0rem;
+  height: 4.0rem;
+  padding: 0.8rem;
+  
+  border-radius: 50%;
+  background: #F4FCFF;
+}
+
+.logo:hover {
+  position: relative;
+  animation: acenar 1s ease-in-out infinite;
+}
+
+@keyframes acenar {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.2rem;
+  
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: .4rem;
+  
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+}
+
+.input-wrapper input::placeholder {
+  opacity: 0.80;
+  color: white;
+}
+
+.avatar {
+  width: 4.0rem;
+  height: 4.0rem;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+main img {
+  width: 100%;
+}
+
+article h1, aside h1 {
+  font-size: clamp(2.4rem, 1vh + 2rem, 4rem);
+  font-weight: 700;
+  line-height: 160%;
+}
+
+article h1 {
+  margin-top: 3.2rem;
+}
+
+aside h1 {
+  margin-top: 3.4rem;
+}
+
+article, aside {
+  max-width: 38.2rem;
+  padding: 0 2.4rem;
+  margin-inline: auto;
+
+  box-sizing: content-box;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.0rem;
+}
+
+button {
+  width: 4.0rem;
+  height: 4.0rem;
+
+  margin-top: 0.8rem;
+
+  border-radius: 50%;
+  background: var(--color-base-blue-500);
+
+  border: none;
+  appearance: none;
+  -webkit-appearence: none;
+  -moz-appearence: none;
+
+
+  cursor: pointer;
+}
+
+button img {
+  width: 1.6rem;
+}
+
+article p {
+  margin-top: 3.0rem;
+}
+
+aside {
+ display: flex;
+ flex-direction: column;
+ gap: 3.2rem;
+}
+
+.article {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+
+  transition: all 200ms ease-out;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 1vw + 0.4rem, 2.5rem);
+}
+
+.article p {
+  font-size: clamp(1.4rem, 1vw + 0.2rem, 1.8rem);
+}
+
+.article img {
+  width: 100%;
+  max-width: 15.2rem;
+  height: 8.4rem;
+}
+
+footer {
+  background: var(--color-base-blue-300);
+  margin-top: 3.8rem;
+}
+
+footer p {
+  text-align: center;
+  padding: 1.6rem;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.logo:hover, .avatar:hover, .article:hover {
+  cursor: pointer;
+}
+
+.article:hover {
+  filter: hue-rotate(10deg) contrast(115%);
+  transform: scale(1.05);
+
+  border-radius: .5rem;
+  color: var(--color-base-blue-500);
+}
+
+button:hover {
+  transform: rotate(-8deg);
+}
+
+@media (min-width: 1020px) {
+  #page {
+    display: grid;
+    height: 100vh;
+  }
+
+  main {
+    display: grid;
+    grid-template-areas: 
+    "A D"
+    "B D"
+    "C D";
+
+    padding: 4.0rem 11.0rem 0;
+    gap: 3.2rem;
+    max-width: 122.1rem;
+    margin-inline: auto;
+  }
+
+  article {
+    max-width: 80.0rem;
+    padding: 0;
+  }
+
+  main img {
+    max-width: 80.3rem;
+    grid-area: A;
+  }
+
+  .article-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    grid-area: B;
+  }
+
+  .article img {
+    object-fit: none;
+  }
+
+  article p {
+    grid-area: C;
+  }
+
+  aside {
+    grid-area: D;
+    max-width: 38.4rem;
+    padding: 0;
+  }
+
+  article, aside {
+    margin: 0;
+  }
+
+  article h1 {
+    margin-top: 0;
+  }
+
+  aside h1, aside p {
+    margin: 0;
+  }
+
+  footer {
+    margin-top: .8rem;
+  }
+}
